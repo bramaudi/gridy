@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+	@apply p-2 cursor-pointer bg-white border border-gray-600 active:ring-2 ring-blue-500;
+}
+
+aside > div {
+	@apply flex items-center mx-3 my-1;
+}
+
+aside > div input {
+	@apply !py-0 !px-1 w-1/4 ml-auto;
+}

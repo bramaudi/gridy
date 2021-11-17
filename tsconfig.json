@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Node",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+		"noImplicitAny": true,
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js",
+		"types": [
+			"vite-plugin-pages/client",
+			"vite-plugin-pwa/client",
+		],
+		"baseUrl": "./src",
+		"paths": {
+			"@components/*": ["components/*"],
+			"@context/*": ["context/*"],
+		}
+	}
+}
