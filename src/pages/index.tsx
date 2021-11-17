@@ -126,7 +126,7 @@ export default () => {
 				</div>
 				<div class="mb-5">
 					<label htmlFor="input-frame-color">Frame Color:</label>
-					<input id="input-frame-color" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
+					<input id="input-frame-color" class="!p-1" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
 				</div>
 				<div>
 					<label htmlFor="input-grid">Grid Line:</label>
@@ -134,7 +134,7 @@ export default () => {
 				</div>
 				<div>
 					<label htmlFor="input-grid-color">Grid Line Color:</label>
-					<input id="input-grid-color" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
+					<input id="input-grid-color" class="!p-1" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
 				</div>
 				<hr class="border-yellow-700 my-5" />
 				<label htmlFor="input-download" class="mx-3">Save as:</label>
