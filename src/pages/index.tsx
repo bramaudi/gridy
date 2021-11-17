@@ -5,6 +5,7 @@ export default () => {
 	let $input: HTMLInputElement
 	let $image: HTMLImageElement
 	let $canvas: HTMLCanvasElement
+	let $aside: HTMLElement
 	const [state, setState] = createStore({
 		cols: 4,
 		rows: 4,
@@ -92,10 +93,10 @@ export default () => {
 
 	return (
 		<main>
-			<article class="fixed left-0 top-0 w-2/3 h-full overflow-y-auto p-5 bg-yellow-50">
+			<article class="fixed left-0 top-0 w-full sm:w-2/3 h-full overflow-y-auto p-5 bg-yellow-50">
 				<canvas class="max-w-full block mx-auto bg-white" ref={$canvas}></canvas>
 			</article>
-			<aside class="fixed right-0 top-0 w-1/3 h-full overflow-y-auto p-2 bg-yellow-200">
+			<aside class="hidden sm:block fixed left-0 sm:left-auto sm:right-0 top-0 w-64 sm:w-1/3 h-full overflow-y-auto p-2 bg-yellow-200" ref={$aside}>
 				<div>
 					<label>
 						<div class="btn mb-2">Choose image</div>
@@ -127,6 +128,12 @@ export default () => {
 					<button class="btn" onClick={handleDownload}>Download</button>
 				</div>
 			</aside>
+			<div
+				onClick={() => $aside.classList.toggle('hidden')}
+				className="sm:hidden text-xl select-none cursor-pointer fixed bottom-2 right-2 p-4 bg-yellow-700 bg-opacity-40"
+			>
+				Editor
+			</div>
 		</main>
 	)
 }
