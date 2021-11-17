@@ -19,4 +19,7 @@ export default defineConfig({
     target: "esnext",
     polyfillDynamicImport: false,
   },
+  server: {
+    host: '0.0.0.0'
+  }
 });
