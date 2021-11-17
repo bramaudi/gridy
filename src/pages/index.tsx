@@ -10,7 +10,9 @@ export default () => {
 		cols: 4,
 		rows: 4,
 		frameWidth: 0,
+		frameColor: '#000000',
 		gridWidth: 1,
+		gridColor: '#000000',
 		name: ''
 	})
 	const suffixFilename = () => {
@@ -29,6 +31,7 @@ export default () => {
 		const ctx = $canvas.getContext('2d')
 		if (state.frameWidth) {
 			ctx.lineWidth = state.frameWidth * 4
+			ctx.strokeStyle = state.frameColor
 			ctx.strokeRect(0, 0, $canvas.width, $canvas.height)
 		}
 	}
@@ -37,6 +40,7 @@ export default () => {
 		for (let x = (state.rows - 1); x >= 1; x--) {
 			const corX = $image.height / state.rows * x
 			ctx.lineWidth = state.gridWidth ? state.gridWidth * 2 : 1
+			ctx.strokeStyle = state.gridColor
 			ctx.beginPath()
 			ctx.moveTo(0, corX)
 			ctx.lineTo($image.width, corX)
@@ -48,6 +52,7 @@ export default () => {
 		for (let y = (state.cols - 1); y >= 1; y--) {
 			const corY = $image.width / state.cols * y
 			ctx.lineWidth = state.gridWidth ? state.gridWidth * 2 : 1
+			ctx.strokeStyle = state.gridColor
 			ctx.beginPath()
 			ctx.moveTo(corY, 0)
 			ctx.lineTo(corY, $image.height)
@@ -59,6 +64,8 @@ export default () => {
 		drawFrameLine()
 		drawHorizontalLines()
 		drawVerticalLines()
+		console.log(JSON.stringify(state));
+		
 	}
 	function handleDownload() {
 		if (state.name === '') return
@@ -117,9 +124,17 @@ export default () => {
 					<label htmlFor="input-frame">Frame Border:</label>
 					<input id="input-frame" type="number" value={state.frameWidth} onInput={e => handleNumericInput(e, 'frameWidth')} />
 				</div>
+				<div class="mb-5">
+					<label htmlFor="input-frame-color">Frame Color:</label>
+					<input id="input-frame-color" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
+				</div>
 				<div>
 					<label htmlFor="input-grid">Grid Line:</label>
 					<input id="input-grid" type="number" value={state.gridWidth} onInput={e => handleNumericInput(e, 'gridWidth')} />
+				</div>
+				<div>
+					<label htmlFor="input-grid-color">Grid Line Color:</label>
+					<input id="input-grid-color" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
 				</div>
 				<hr class="border-yellow-700 my-5" />
 				<label htmlFor="input-download" class="mx-3">Save as:</label>

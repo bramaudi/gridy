@@ -6,9 +6,9 @@ export default {
 	},
 	includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
 	manifest: {
-		name: 'Solid App',
-		short_name: 'Solid App',
-		description: 'Solid + Vite + Tailwind',
+		name: 'Gridy',
+		short_name: 'Gridy',
+		description: 'Add grid to image',
 		icons: [
 			{
 				"src": "/android-chrome-192x192.png",
