@@ -6,7 +6,7 @@ export default () => {
 	let $input: HTMLInputElement
 	let $image: HTMLImageElement
 	let $canvas: HTMLCanvasElement
-	let $aside: HTMLElement
+	let $editor: HTMLDivElement
 	const [state, setState] = createStore({
 		cols: 4,
 		rows: 4,
@@ -74,18 +74,30 @@ export default () => {
 				<img class="hidden" alt="Image" ref={$image} />
 				<canvas class="max-w-full block mx-auto bg-white" ref={$canvas}></canvas>
 			</article>
-			<aside class="hidden sm:block fixed left-0 sm:left-auto sm:right-0 top-0 w-64 sm:w-1/3 h-full overflow-y-auto p-2 bg-yellow-200" ref={$aside}>
-				<Editor
-					state={[state, setState]}
-					drawBatch={drawBatch}
-					refImage={$image}
-					refInput={$input}
-					refCanvas={$canvas}
-				/>
+			<aside>
+				<div
+					onClick={(e) => {
+						$editor.classList.toggle('hidden')
+						e.currentTarget.classList.toggle('fixed')
+					}}
+					class="sm:hidden z-40 top-0 left-0 w-full h-full bg-black bg-opacity-20"
+				></div>
+				<div ref={$editor} class="sidebar hidden sm:block fixed z-50 left-0 sm:left-auto sm:right-0 top-0 w-64 sm:w-1/3 h-full overflow-y-auto p-2 bg-yellow-200">
+					<Editor
+						state={[state, setState]}
+						drawBatch={drawBatch}
+						refImage={$image}
+						refInput={$input}
+						refCanvas={$canvas}
+					/>
+				</div>
 			</aside>
 			<div
-				onClick={() => $aside.classList.toggle('hidden')}
-				className="sm:hidden text-xl select-none cursor-pointer fixed bottom-2 right-2 p-4 bg-yellow-700 bg-opacity-40"
+				onClick={() => {
+					$editor.classList.toggle('hidden')
+					$editor.previousElementSibling.classList.toggle('fixed')
+				}}
+				className="sm:hidden text-xl select-none cursor-pointer fixed z-30 bottom-2 right-2 p-4 bg-yellow-700 bg-opacity-40"
 			>
 				Editor
 			</div>

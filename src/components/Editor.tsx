@@ -59,7 +59,7 @@ const Editor = (props: Props) => {
 
 	return (
 		<>
-			<div>
+			<div class="row">
 				<label class="w-full">
 					<div class="btn mb-2 flex items-center">
 						<img src={upFileIcon} alt="up-file" class="h-5 mr-1" />
@@ -69,42 +69,42 @@ const Editor = (props: Props) => {
 				</label>
 			</div>
 			<hr class="border-yellow-500 my-5" />
-			<div>
+			<div class="row">
 				<label htmlFor="input-cols" class="flex items-center">
 					<img src={colsIcon} alt="cols" class="w-10 h-10 p-1 mr-1" />
 					Cols:
 				</label>
-				<input class="h-10" id="input-cols" type="number" value={state.cols} onInput={e => handleNumericInput(e, 'cols')} />
+				<input class="h-10 w-1/4 ml-auto" id="input-cols" type="number" value={state.cols} onInput={e => handleNumericInput(e, 'cols')} />
 			</div>
-			<div>
+			<div class="row">
 				<label htmlFor="input-rows" class="flex items-center">
 					<img src={colsIcon} alt="rows" class="w-10 h-10 p-1 mr-1 rotate-90" />
 					Rows:
 				</label>
-				<input class="h-10" id="input-rows" type="number" value={state.rows} onInput={e => handleNumericInput(e, 'rows')} />
+				<input class="h-10 w-1/4 ml-auto" id="input-rows" type="number" value={state.rows} onInput={e => handleNumericInput(e, 'rows')} />
 			</div>
 			<hr class="border-yellow-500 my-5" />
-			<div>
+			<div class="row">
 				<label htmlFor="input-border" class="flex items-center">
 					<img src={outerIcon} alt="outerLine" class="w-10 h-10 mr-1" />
 					Border:
 				</label>
-				<input class="h-10 py-0" id="input-border" type="number" value={state.frameWidth} onInput={e => handleNumericInput(e, 'frameWidth')} />
-				<input class="!p-1 ml-0 w-10 h-10 border border-gray-600" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
+				<input class="h-10 py-0 w-1/4 ml-auto" id="input-border" type="number" value={state.frameWidth} onInput={e => handleNumericInput(e, 'frameWidth')} />
+				<input class="!p-1 ml-0 w-10 h-10 border border-l-0 border-gray-600" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
 			</div>
-			<div>
+			<div class="row">
 				<label htmlFor="input-grid" class="flex items-center">
 					<img src={innerIcon} alt="innerLine" class="w-10 h-10 mr-1" />
 					Grid:
 				</label>
-				<input class="h-10 py-0" id="input-grid" type="number" value={state.gridWidth} onInput={e => handleNumericInput(e, 'gridWidth')} />
-				<input class="!p-1 ml-0 w-10 h-10 border border-gray-600" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
+				<input class="h-10 py-0 w-1/4 ml-auto" id="input-grid" type="number" value={state.gridWidth} onInput={e => handleNumericInput(e, 'gridWidth')} />
+				<input class="!p-1 ml-0 w-10 h-10 border border-l-0 border-gray-600" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
 			</div>
 			<hr class="border-yellow-500 my-5" />
 			<label htmlFor="input-download" class="mx-3">Save as:</label>
-			<div className="flex">
-				<input id="input-download" class="w-full !p-2" type="text" value={state.name} onInput={e => setState('name', e.currentTarget.value)} />
-				<button class="btn" onClick={handleDownload}>Download</button>
+			<div className="flex mx-3">
+				<input class="w-full" id="input-download" type="text" value={state.name} onInput={e => setState('name', e.currentTarget.value)} />
+				<button class="btn !border-l-0" onClick={handleDownload}>Download</button>
 			</div>
 		</>
 	)
