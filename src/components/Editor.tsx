@@ -85,20 +85,20 @@ const Editor = (props: Props) => {
 			</div>
 			<hr class="border-yellow-500 my-5" />
 			<div class="row">
-				<label htmlFor="input-border" class="flex items-center">
-					<img src={outerIcon} alt="outerLine" class="w-10 h-10 mr-1" />
-					Border:
-				</label>
-				<input class="h-10 py-0 w-1/4 ml-auto" id="input-border" type="number" value={state.frameWidth} onInput={e => handleNumericInput(e, 'frameWidth')} />
-				<input class="!p-1 ml-0 w-10 h-10 border border-l-0 border-gray-600" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
-			</div>
-			<div class="row">
 				<label htmlFor="input-grid" class="flex items-center">
 					<img src={innerIcon} alt="innerLine" class="w-10 h-10 mr-1" />
 					Grid:
 				</label>
 				<input class="h-10 py-0 w-1/4 ml-auto" id="input-grid" type="number" value={state.gridWidth} onInput={e => handleNumericInput(e, 'gridWidth')} />
 				<input class="!p-1 ml-0 w-10 h-10 border border-l-0 border-gray-600" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
+			</div>
+			<div class="row">
+				<label htmlFor="input-border" class="flex items-center">
+					<img src={outerIcon} alt="outerLine" class="w-10 h-10 mr-1" />
+					Border:
+				</label>
+				<input class="h-10 py-0 w-1/4 ml-auto" id="input-border" type="number" value={state.frameWidth} onInput={e => handleNumericInput(e, 'frameWidth')} />
+				<input class="!p-1 ml-0 w-10 h-10 border border-l-0 border-gray-600" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
 			</div>
 			<hr class="border-yellow-500 my-5" />
 			<label htmlFor="input-download" class="mx-3">Save as:</label>
