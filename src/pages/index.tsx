@@ -70,9 +70,11 @@ export default () => {
 
 	return (
 		<main class="bg-yellow-50">
-			<article class="fixed left-0 top-0 w-full sm:w-2/3 h-full overflow-y-auto p-5 bg-yellow-50">
-				<img class="hidden" alt="Image" ref={$image} />
-				<canvas class="max-w-full block mx-auto bg-white" ref={$canvas}></canvas>
+			<article class="fixed left-0 top-0 w-full sm:w-2/3 h-full overflow-y-auto flex items-center justify-center p-5 bg-yellow-50">
+				<div>
+					<img class="hidden" alt="Image" ref={$image} />
+					<canvas class="max-w-full block mx-auto bg-white" ref={$canvas}></canvas>
+				</div>
 			</article>
 			<aside>
 				<div
