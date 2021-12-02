@@ -90,7 +90,7 @@ const Editor = (props: Props) => {
 					Grid:
 				</label>
 				<input class="h-10 py-0 w-1/4 ml-auto" id="input-grid" type="number" value={state.gridWidth} onInput={e => handleNumericInput(e, 'gridWidth')} />
-				<input class="!p-1 ml-0 w-10 h-10 border border-l-0 border-gray-600" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
+				<input class="!p-1 ml-1 w-10 h-10 border border-gray-600" type="color" value={state.gridColor} onInput={e => setState('gridColor', e.currentTarget.value)} />
 			</div>
 			<div class="row">
 				<label htmlFor="input-border" class="flex items-center">
@@ -98,13 +98,13 @@ const Editor = (props: Props) => {
 					Border:
 				</label>
 				<input class="h-10 py-0 w-1/4 ml-auto" id="input-border" type="number" value={state.frameWidth} onInput={e => handleNumericInput(e, 'frameWidth')} />
-				<input class="!p-1 ml-0 w-10 h-10 border border-l-0 border-gray-600" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
+				<input class="!p-1 ml-1 w-10 h-10 border border-gray-600" type="color" value={state.frameColor} onInput={e => setState('frameColor', e.currentTarget.value)} />
 			</div>
 			<hr class="border-yellow-500 my-5" />
 			<label htmlFor="input-download" class="mx-3">Save as:</label>
 			<div className="flex mx-3">
 				<input class="w-full" id="input-download" type="text" value={state.name} onInput={e => setState('name', e.currentTarget.value)} />
-				<button class="btn !border-l-0" onClick={handleDownload}>Download</button>
+				<button class="btn ml-1" onClick={handleDownload}>Download</button>
 			</div>
 		</>
 	)
