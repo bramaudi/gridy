@@ -10,6 +10,25 @@ input[type=color]:active {
 	@apply p-2 cursor-pointer bg-white border border-gray-600 active:ring-2 ring-blue-500;
 }
 
+.overlay {
+	@apply invisible pointer-events-none;
+	@apply transition-all;
+}
+aside.active .overlay {
+	@apply visible pointer-events-auto;
+}
+
+.sidebar {
+	@apply -translate-x-full sm:translate-x-0;
+	@apply fixed z-50 left-0 sm:left-auto sm:right-0 top-0;
+	@apply w-64 sm:w-1/3 h-full overflow-y-auto p-2;
+	@apply bg-yellow-200;
+	@apply transition-all;
+}
+aside.active .sidebar {
+	@apply translate-x-0;
+}
+
 .sidebar .row {
 	@apply flex items-center mx-3 my-1;
 }

@@ -1,5 +1,5 @@
 import Editor from "@components/Editor"
-import { createEffect, onMount } from "solid-js"
+import { createEffect, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
 
 export default () => {
@@ -7,6 +7,7 @@ export default () => {
 	let $image: HTMLImageElement
 	let $canvas: HTMLCanvasElement
 	let $editor: HTMLDivElement
+	const [sidebar, setSidebar] = createSignal(false)
 	const [state, setState] = createStore({
 		cols: 4,
 		rows: 4,
@@ -76,15 +77,13 @@ export default () => {
 					<canvas class="max-w-full block mx-auto bg-white" ref={$canvas}></canvas>
 				</div>
 			</article>
-			<aside>
+			<aside classList={{'active': sidebar()}}>
+				{/* Overlay */}
 				<div
-					onClick={(e) => {
-						$editor.classList.toggle('hidden')
-						e.currentTarget.classList.toggle('fixed')
-					}}
-					class="sm:hidden z-40 top-0 left-0 w-full h-full bg-black bg-opacity-20"
+					onClick={() => setSidebar(val => !val)}
+					class="overlay fixed sm:hidden z-40 top-0 left-0 w-full h-full bg-black bg-opacity-20"
 				></div>
-				<div ref={$editor} class="sidebar hidden sm:block fixed z-50 left-0 sm:left-auto sm:right-0 top-0 w-64 sm:w-1/3 h-full overflow-y-auto p-2 bg-yellow-200">
+				<div ref={$editor} class="sidebar">
 					<Editor
 						state={[state, setState]}
 						drawBatch={drawBatch}
@@ -95,10 +94,7 @@ export default () => {
 				</div>
 			</aside>
 			<div
-				onClick={() => {
-					$editor.classList.toggle('hidden')
-					$editor.previousElementSibling.classList.toggle('fixed')
-				}}
+				onClick={() => setSidebar(val => !val)}
 				className="sm:hidden text-xl select-none cursor-pointer fixed z-30 bottom-2 right-2 p-4 bg-yellow-700 bg-opacity-40"
 			>
 				Editor
